@@ -35,7 +35,7 @@ if uploaded_files:
         with zipfile.ZipFile(zip_buffer, 'w') as zipf:
             for uploaded_file in uploaded_files:
                 processed_image = resize_and_compress_image(uploaded_file)
-                zipf.writestr(f"processed_{uploaded_file.name}", processed_image)
+                zipf.writestr(f"{uploaded_file.name}", processed_image)
 
         zip_data = zip_buffer.getvalue()
         st.download_button(
