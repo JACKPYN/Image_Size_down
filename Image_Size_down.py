@@ -41,7 +41,7 @@ if uploaded_files:
         st.download_button(
             label="처리된 이미지 ZIP 파일 다운로드",
             data=zip_data,
-            file_name="processed_images.zip",
+            file_name="압축된 사진파일.zip",
             mime="application/zip"
         )
         st.success("이미지 처리 및 ZIP 생성 완료!")
