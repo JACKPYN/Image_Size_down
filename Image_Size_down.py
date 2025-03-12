@@ -32,23 +32,23 @@ def resize_and_compress_image(image, resize_percent=0.7, max_size_kb=300):
 
     return img_byte_arr.getvalue()
 
-st.title("이미지 해상도 70% 축소 및 300KB 미만 압축 후 ZIP 다운로드 (PNG 지원)")
+st.title("사진 크기를 한번에 줄이는 프로그램")
 
 uploaded_files = st.file_uploader("이미지 파일을 업로드하세요.", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 
 if uploaded_files:
-    if st.button("이미지 처리 및 ZIP 다운로드"):
+    if st.button("사진 크기 줄이기"):
         zip_buffer = io.BytesIO()
         with zipfile.ZipFile(zip_buffer, 'w') as zipf:
             for uploaded_file in uploaded_files:
                 processed_image = resize_and_compress_image(uploaded_file)
-                zipf.writestr(f"processed_{uploaded_file.name}", processed_image)
+                zipf.writestr(f"{uploaded_file.name}", processed_image)
 
         zip_data = zip_buffer.getvalue()
         st.download_button(
-            label="처리된 이미지 ZIP 파일 다운로드",
+            label="처리된 이미지 파일들 다운로드",
             data=zip_data,
-            file_name="processed_images.zip",
+            file_name="사진파일.zip",
             mime="application/zip"
         )
-        st.success("이미지 처리 및 ZIP 생성 완료!")
+        st.success("이미지 처리 다운로드 완료!")
