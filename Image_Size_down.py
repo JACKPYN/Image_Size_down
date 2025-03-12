@@ -25,7 +25,7 @@ def resize_and_compress_image(image, resize_percent=0.7, max_size_kb=300):
 
     return img_byte_arr.getvalue()
 
-st.title("이미지 해상도 70% 축소 및 300KB 미만 압축 후 ZIP 다운로드")
+st.title("이미지 해상도 70%로 축소하는 프로그램")
 
 uploaded_files = st.file_uploader("이미지 파일을 업로드하세요.", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 
