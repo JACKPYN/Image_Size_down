@@ -32,7 +32,7 @@ def resize_and_compress_image(image, resize_percent=0.7, max_size_kb=300):
 
     return img_byte_arr.getvalue()
 
-st.title("사진 크기를 한번에 줄이는 프로그램")
+st.title("여러 사진의 크기를 한번에 줄이기")
 
 uploaded_files = st.file_uploader("이미지 파일을 업로드하세요.", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 
